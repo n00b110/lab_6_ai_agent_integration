@@ -1,0 +1,80 @@
+# Python bytecode
+
+**pycache**/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+
+venv/
+.env/
+.venv/
+ENV/
+env/
+
+# Environment variables
+
+.env
+.env.*
+
+# Python packaging
+
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Logs
+
+*.log
+logs/
+
+# Jupyter checkpoints
+
+.ipynb_checkpoints/
+
+# Data files (optional – remove if you want to track your CSV)
+
+data/
+*.csv
+*.tsv
+
+# Streamlit
+
+.streamlit/secrets.toml
+
+# IDEs / editors
+
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# macOS
+
+.DS_Store
+
+# Windows
+
+Thumbs.db
+
+# Temporary files
+
+*.tmp
+*.temp
+
+# Coverage / testing
+
+.coverage
+coverage.xml
+htmlcov/
+
+# Node (sometimes included in Streamlit projects)
+
+node_modules/
+
+# System files
+
+*.pid
+*.seed
+*.pid.lock
