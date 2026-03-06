@@ -1,7 +1,12 @@
+import os
+
+from dotenv import load_dotenv
 from openai import OpenAI
 
 import tools as tool_functions
 from tool_schemas import tools
+
+load_dotenv()
 
 client = OpenAI()
 
