@@ -1,44 +1,90 @@
-# Task 1 – Antigravity IDE Report
+# Task 4 – Agent Evaluation Report
 
-## Prompts Given to Antigravity
-
-Prompt 1
-Analyze the repository structure and give suggestions for improving the organization of the project.
-
-Prompt 2
-Review the agent and tool implementation and suggest ways the components could be structured more clearly.
-
-Prompt 3
-Look through the project files and identify anything that could be improved in terms of readability or modular design.
+The agent was tested using three scenarios with increasing levels of difficulty. These scenarios were designed to evaluate how the agent selects tools, performs reasoning steps, and generates responses.
 
 ---
 
-## Suggestions from Antigravity
+## Scenario 1 – Simple Query
 
-Antigravity suggested separating the main agent logic from the tool implementations so the system would be easier to maintain. It also recommended keeping the tools and their schemas in separate files so the agent could call them more clearly.
+User Query
+"What is the average Toyota stock price in the dataset?"
 
-Another suggestion was improving the overall repository structure. The IDE suggested grouping documentation, reports, and media files into separate folders so the project would be easier to navigate.
+Tools Used
+stock_analysis_tool
 
-Antigravity also mentioned adding clearer explanations in the README so someone new to the project could understand how the system works and how to run it.
+Reasoning Steps
+1
+
+Result
+The agent selected the stock analysis tool and calculated the requested value using the dataset.
+
+Latency
+About 1–2 seconds
+
+Accuracy
+The result matched the expected value from the dataset.
 
 ---
 
-## Changes Accepted
+## Scenario 2 – Medium Query
 
-Based on the suggestions, the project was organized into clearer sections.
+User Query
+"Retrieve Toyota stock data and summarize the overall trend."
 
-The tool implementations were placed in `tools.py`, while the tool definitions were placed in `tool_schemas.py`. This made the agent easier to connect with the available tools.
+Tools Used
+data_retrieval_tool
+summary_tool
 
-Folders such as `reports`, `docs`, and `media` were also used to separate documentation and supporting files from the main application code.
+Reasoning Steps
+2
 
-These changes helped make the structure of the repository easier to follow.
+Result
+The agent first retrieved the data from the dataset and then used the summarization tool to explain the general trend.
+
+Latency
+Around 2–3 seconds
+
+Accuracy
+The response correctly described the general trend in the data.
 
 ---
 
-## Reflection
+## Scenario 3 – Complex Query
 
-Using Antigravity felt somewhat similar to working with a coding assistant that reviews the project and gives suggestions. It looked through the repository and pointed out a few areas where the structure could be improved.
+User Query
+"Analyze the Toyota stock price changes and explain any noticeable patterns."
 
-Some of the suggestions were things we were already considering, but it still helped confirm that the organization made sense. The recommendations about separating the agent and tools were especially helpful.
+Tools Used
+data_retrieval_tool
+analysis_tool
+summary_tool
 
-Overall, Antigravity was useful for reviewing the project and identifying ways to make the structure clearer and easier to understand.
+Reasoning Steps
+3
+
+Result
+The agent retrieved the dataset, performed analysis on the values, and generated an explanation describing possible patterns in the stock prices.
+
+Latency
+About 3–4 seconds
+
+Accuracy
+The explanation reflected the patterns present in the dataset.
+
+---
+
+## Failure Cases
+
+During testing there were a few situations where the agent attempted to call a tool without all the correct parameters. However, the error handling prevented the application from crashing and returned a message instead.
+
+This helped keep the system stable even when something did not execute perfectly.
+
+---
+
+## Observations
+
+Overall the agent was able to interpret user queries and select appropriate tools to answer them.
+
+In simpler cases only one tool was needed, while more complex queries required multiple reasoning steps. The agent was generally able to combine tool outputs and produce a reasonable final response.
+
+The testing showed that the system works as expected and demonstrates how an AI agent can coordinate multiple tools to answer questions.
